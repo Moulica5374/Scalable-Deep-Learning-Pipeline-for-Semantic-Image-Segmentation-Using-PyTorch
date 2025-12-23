@@ -34,7 +34,8 @@ metrics & visualization
 ```
 The pipeline avoids notebook-only coupling and is structured for scaling, debugging, and extension.
 
-Repository Structure
+### Repository Structure
+
 ├── data/                   # Dataset loading & preprocessing
 ├── models/                 # Segmentation architectures
 ├── training/               # Training loops & optimization logic
@@ -49,34 +50,33 @@ Repository Structure
 
 Each module is independently testable and replaceable.
 
-Model Details
+### Model Details
 
-Task: Semantic Image Segmentation
+- Task: Semantic Image Segmentation
 
-Architecture: CNN-based segmentation model
+- Architecture: U-Net based segmentation model
 
-Loss: Cross-Entropy / Dice (configurable)
+- Loss: Cross-Entropy / Dice (configurable)
 
-Optimizer: Adam or SGD
+- Optimizer: Adam or SGD
 
-Evaluation Metrics:
+### Evaluation Metrics:
 
-Intersection over Union (IoU)
+- Intersection over Union (IoU)
 
-Dice Coefficient
+- Dice Coefficient
 
-Pixel Accuracy
+- Pixel Accuracy
 
 Model design prioritizes stability and clarity over architectural gimmicks.
 
-Environment Setup
+### Environment Setup
 
 
-git clone https://github.com/moulica5374/scalable-image-segmentation-pytorch.git
-cd scalable-image-segmentation-pytorch
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+- git clone https://github.com/moulica5374/scalable-image-segmentation-pytorch.git
+- cd scalable-image-segmentation-pytorch
+
+- pip install -r requirements.txt
 
 Training
 
@@ -84,21 +84,21 @@ Training
 python train.py
 ```
 
-Configurable parameters:
+### Configurable parameters:
 
-Batch size
+- Batch size
 
-Learning rate
+- Learning rate
 
-Epochs
+- Epochs
 
-Loss function
+- Loss function
 
-Model architecture
+### Model architecture
 
 Training code is stateless and restart-safe.
 
-Evaluation
+### Evaluation
 
 ```
 python evaluate.py
