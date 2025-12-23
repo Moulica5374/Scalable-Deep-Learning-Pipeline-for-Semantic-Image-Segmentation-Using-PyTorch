@@ -1,3 +1,5 @@
+from config import *
+
 import torch
 import numpy as np
 
