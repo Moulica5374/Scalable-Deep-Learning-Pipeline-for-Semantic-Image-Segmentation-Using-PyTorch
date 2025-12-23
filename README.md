@@ -49,6 +49,7 @@ The pipeline avoids notebook-only coupling and is structured for scaling, debugg
 │   └── Deep_Learning_with_PyTorch_ImageSegmentation.ipynb
 ├── requirements.txt
 └── .gitignore
+```
 
 Each module is independently testable and replaceable.
 
@@ -112,29 +113,9 @@ Core logic lives in .py files and does not depend on the notebook
 The implementation intentionally mirrors the original notebook logic
 
 
-### Evaluation Metrics:
-
-- Intersection over Union (IoU)
-
-- Dice Coefficient
-
-- Pixel Accuracy
-
-Model design prioritizes stability and clarity over architectural gimmicks.
-
-### Environment Setup
 
 
-- git clone https://github.com/moulica5374/scalable-image-segmentation-pytorch.git
-- cd scalable-image-segmentation-pytorch
 
-- pip install -r requirements.txt
-
-Training
-
-```
-python train.py
-```
 
 ### Configurable parameters:
 
@@ -150,11 +131,7 @@ python train.py
 
 Training code is stateless and restart-safe.
 
-### Evaluation
 
-```
-python evaluate.py
-```
 Outputs:
 
 - Quantitative metrics (IoU, Dice, Accuracy)
