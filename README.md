@@ -153,11 +153,11 @@ Reproducibility
 
 - Experiments are reproducible across runs and environments.
 
-Extending the Pipeline
+### Extending the Pipeline
 
 This repository is intentionally designed for extension:
 
-- Replace CNN with U-Net / DeepLab
+- Replace U-Net with DeepLab /CNN
 
 - Add data augmentation strategies
 
