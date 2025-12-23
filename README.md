@@ -36,16 +36,28 @@ The pipeline avoids notebook-only coupling and is structured for scaling, debugg
 
 ### Repository Structure
 
-├── data/                   # Dataset loading & preprocessing
-├── models/                 # Segmentation architectures
-├── training/               # Training loops & optimization logic
-├── evaluation/             # Metrics, validation & visualization
-├── utils/                  # Logging, helpers, reproducibility utils
-├── notebooks/              # Optional experiments / analysis
-├── train.py                # Training entry point
-├── evaluate.py             # Evaluation entry point
+.
+├── data/
+│   └── README.md            # Dataset format & preprocessing details
+├── models/
+│   ├── __init__.py
+│   └── segmentation_model.py
+├── training/
+│   ├── __init__.py
+│   └── trainer.py
+├── evaluation/
+│   ├── __init__.py
+│   └── metrics.py
+├── utils/
+│   ├── logging.py
+│   └── seed.py
+├── notebooks/
+│   └── experiments.ipynb
+├── train.py                 # Training entry point
+├── evaluate.py              # Evaluation entry point
 ├── requirements.txt
 └── README.md
+
 
 
 Each module is independently testable and replaceable.
