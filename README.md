@@ -34,8 +34,9 @@ metrics & visualization
 ```
 The pipeline avoids notebook-only coupling and is structured for scaling, debugging, and extension.
 
-### Repository Structure
+#### Repository Structure
 
+```text
 .
 ├── data/
 │   └── README.md            # Dataset format & preprocessing details
@@ -57,7 +58,6 @@ The pipeline avoids notebook-only coupling and is structured for scaling, debugg
 ├── evaluate.py              # Evaluation entry point
 ├── requirements.txt
 └── README.md
-
 
 
 Each module is independently testable and replaceable.
