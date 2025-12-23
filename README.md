@@ -38,41 +38,79 @@ The pipeline avoids notebook-only coupling and is structured for scaling, debugg
 
 ```text
 .
-├── data/
-│   └── README.md            # Dataset format & preprocessing details
-├── models/
-│   ├── __init__.py
-│   └── segmentation_model.py
-├── training/
-│   ├── __init__.py
-│   └── trainer.py
-├── evaluation/
-│   ├── __init__.py
-│   └── metrics.py
-├── utils/
-│   ├── logging.py
-│   └── seed.py
+├── config.py
+├── dataset.py
+├── transforms.py
+├── segmentation_model.py
+├── trainer.py
+├── train.py
+├── evaluate.py
 ├── notebooks/
-│   └── experiments.ipynb
-├── train.py                 # Training entry point
-├── evaluate.py              # Evaluation entry point
+│   └── Deep_Learning_with_PyTorch_ImageSegmentation.ipynb
 ├── requirements.txt
-└── README.md
-
-````
-
+└── .gitignore
 
 Each module is independently testable and replaceable.
 
+### Dataset Assumptions
+This project assumes a binary semantic segmentation dataset with:
+
+- Images and masks stored on disk
+
+- A CSV file containing paths to images and masks
+
+- Masks encoded as single-channel binary images
+
+The dataset loading logic is implemented in dataset.py.
+
 ### Model Details
 
-- Task: Semantic Image Segmentation
+- Architecture: U-Net
 
-- Architecture: U-Net based segmentation model
+- Backbone: configurable encoder via segmentation_models_pytorch
 
-- Loss: Cross-Entropy / Dice (configurable)
+- Loss: Dice Loss + Binary Cross Entropy
 
-- Optimizer: Adam or SGD
+- Output: single-channel logits (binary segmentation)
+Model definition is located in segmentation_model.py
+
+### Training
+
+To train the model
+
+```
+pip install -r requirements.txt
+python train.py
+```
+
+Training Logic:
+- Optimizer : Adam
+- Checkpointing: best validation loss (best_model.pt)
+- Training Loop : trainer.py
+
+### Evaluation 
+To run inference on a validation sample:
+```
+python evaluate.py
+
+```
+This script loads the best checkpoint and generates a predicted mask for inspection.
+
+### Configuration
+
+All global parameters (device, image size, encoder, learning rate, epochs) are defined in:
+
+```
+config.py
+```
+Notes
+
+The notebook is preserved under notebooks/ for reference and experimentation
+
+Core logic lives in .py files and does not depend on the notebook
+
+The implementation intentionally mirrors the original notebook logic
+
 
 ### Evaluation Metrics:
 
