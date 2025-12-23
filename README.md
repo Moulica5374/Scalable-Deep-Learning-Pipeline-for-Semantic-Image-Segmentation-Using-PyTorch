@@ -59,6 +59,8 @@ The pipeline avoids notebook-only coupling and is structured for scaling, debugg
 ├── requirements.txt
 └── README.md
 
+````
+
 
 Each module is independently testable and replaceable.
 
